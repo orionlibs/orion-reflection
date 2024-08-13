@@ -15,13 +15,11 @@ public class GetDeclaredConstructorTask
     public static Constructor<?> run(Class<?> aClass, Class<?>... constructorParameterTypes) throws NoSuchMethodException, SecurityException
     {
         Assert.notNull(aClass, "class input cannot be null.");
-
         if(constructorParameterTypes != null && constructorParameterTypes.length == 0)
         {
             constructorParameterTypes = new Class<?>[]
-            {Object.class};
+                            {Object.class};
         }
-
         return aClass.getDeclaredConstructor(constructorParameterTypes);
     }
 }

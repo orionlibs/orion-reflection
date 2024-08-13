@@ -12,17 +12,13 @@ public class GetDeclaredPrivateInstanceVariablesArrayTask
     {
         Assert.notNull(aClass, "class input cannot be null.");
         List<Field> declaredPrivateInstanceVariables = new ArrayList<Field>();
-
         for(Field instanceVariable : aClass.getDeclaredFields())
         {
-
             if(Modifier.isPrivate(instanceVariable.getModifiers()) && IsNotStaticVariableTask.run(instanceVariable))
             {
                 declaredPrivateInstanceVariables.add(instanceVariable);
             }
-
         }
-
         return declaredPrivateInstanceVariables.toArray(new Field[0]);
     }
 

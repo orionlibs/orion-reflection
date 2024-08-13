@@ -11,17 +11,13 @@ public class GetDeclaredProtectedInstanceVariablesArrayTask
     {
         Assert.notNull(aClass, "class input cannot be null.");
         List<Field> declaredProtectedInstanceVariables = new ArrayList<Field>();
-
         for(Field instanceVariable : aClass.getDeclaredFields())
         {
-
             if(IsProtectedVariableTask.run(instanceVariable) && IsNotStaticVariableTask.run(instanceVariable))
             {
                 declaredProtectedInstanceVariables.add(instanceVariable);
             }
-
         }
-
         return declaredProtectedInstanceVariables.toArray(new Field[0]);
     }
 

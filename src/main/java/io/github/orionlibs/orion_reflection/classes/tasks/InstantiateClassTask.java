@@ -10,7 +10,6 @@ public class InstantiateClassTask
     public static Object run(Class<?> classToInstantiate, Class<?>[] constructorArgumentTypes, Object[] constructorArguments) throws InvocationTargetException, InaccessibleException
     {
         Assert.notNull(classToInstantiate, "classToInstantiate cannot be null.");
-
         try
         {
             return classToInstantiate.getConstructor(constructorArgumentTypes).newInstance(constructorArguments);
@@ -35,13 +34,11 @@ public class InstantiateClassTask
         {
             throw e;
         }
-
     }
 
 
     public static Object run(String classToInstantiateString, Class<?>[] constructorArgumentTypes, Object[] constructorArguments) throws InvocationTargetException, InaccessibleException
     {
-
         try
         {
             Class<?> classToInstantiate = ClassLoader.getSystemClassLoader().loadClass(classToInstantiateString);
@@ -51,6 +48,5 @@ public class InstantiateClassTask
         {
             throw new InvalidArgumentException("The class {} does not exist.", classToInstantiateString);
         }
-
     }
 }

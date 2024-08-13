@@ -13,13 +13,11 @@ public class GetInherittedPrivateInstanceVariablesArrayTask
         Assert.notNull(aClass, "class input cannot be null.");
         List<Field> instanceVariables = new ArrayList<Field>();
         Class<?> currentSuperClass = aClass.getSuperclass();
-
         while(currentSuperClass != null)
         {
             instanceVariables.addAll(Arrays.asList(GetDeclaredPrivateInstanceVariablesArrayTask.run(currentSuperClass)));
             currentSuperClass = currentSuperClass.getSuperclass();
         }
-
         return instanceVariables.toArray(new Field[0]);
     }
 

@@ -11,12 +11,10 @@ public class GetDeclaredProtectedMethodTask
         Assert.notNull(aClass, "class input cannot be null.");
         Assert.notNull(methodParameterTypes, "methodParameterTypes input cannot be null.");
         Method method = GetDeclaredMethodTask.run(methodName, aClass, methodParameterTypes);
-
         if(method != null && IsProtectedMethodTask.run(method))
         {
             return method;
         }
-
         return null;
     }
 

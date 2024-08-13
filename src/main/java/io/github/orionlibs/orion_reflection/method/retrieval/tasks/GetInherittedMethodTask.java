@@ -20,19 +20,15 @@ public class GetInherittedMethodTask
         Assert.notEmpty(methodName, "methmethodNameod input cannot be null/empty.");
         Assert.notNull(aClass, "class input cannot be null.");
         Assert.notNull(methodParameterTypes, "methodParameterTypes input cannot be null.");
-
         try
         {
-
             if(methodParameterTypes.length == 0)
             {
                 methodParameterTypes = new Class<?>[]
-                {Object.class};
+                                {Object.class};
             }
-
             Method publicOrInherittedMethod = aClass.getMethod(methodName, methodParameterTypes);
             Method declaredMethod = GetDeclaredMethodTask.run(methodName, aClass, methodParameterTypes);
-
             if(declaredMethod == null || !Modifier.isPublic(declaredMethod.getModifiers()))
             {
                 return publicOrInherittedMethod;
@@ -41,7 +37,6 @@ public class GetInherittedMethodTask
             {
                 return null;
             }
-
         }
         catch(NoSuchMethodException e)
         {
@@ -51,6 +46,5 @@ public class GetInherittedMethodTask
         {
             return null;
         }
-
     }
 }

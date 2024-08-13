@@ -5,7 +5,7 @@ import io.github.orionlibs.orion_assert.Assert;
 public class GetEnumerationNameTask
 {
     @SuppressWarnings(
-    {"rawtypes"})
+                    {"rawtypes"})
     public static String run(Enum enumerationDefinition)
     {
         Assert.notNull(enumerationDefinition, "enumerationDefinition input cannot be null.");

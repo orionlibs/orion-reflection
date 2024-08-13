@@ -13,7 +13,6 @@ public class CallMethodTask
         Assert.notNull(methodArguments, "methodArguments input cannot be null.");
         Class<?>[] methodArgumentsAsClasses = getMethodArgumentsAsClasses(methodArguments);
         Method methodToCall = null;
-
         try
         {
             methodToCall = objectMethodBelongsTo.getClass().getMethod(method, methodArgumentsAsClasses);
@@ -26,7 +25,6 @@ public class CallMethodTask
         {
             return null;
         }
-
         return run(methodToCall, objectMethodBelongsTo, methodArguments);
     }
 
@@ -37,7 +35,6 @@ public class CallMethodTask
         Assert.notNull(objectMethodBelongsTo, "objectMethodBelongsTo input cannot be null.");
         Class<?>[] methodArgumentsAsClasses = new Class<?>[0];
         Method methodToCall = null;
-
         try
         {
             methodToCall = objectMethodBelongsTo.getClass().getMethod(method, methodArgumentsAsClasses);
@@ -50,7 +47,6 @@ public class CallMethodTask
         {
             return null;
         }
-
         return run(methodToCall, objectMethodBelongsTo, new Object[0]);
     }
 
@@ -62,7 +58,6 @@ public class CallMethodTask
         Assert.notNull(argumentTypes, "argumentTypes input cannot be null.");
         Assert.notNull(methodArguments, "methodArguments input cannot be null.");
         Method methodToCall = null;
-
         try
         {
             methodToCall = objectMethodBelongsTo.getClass().getMethod(method, argumentTypes);
@@ -75,7 +70,6 @@ public class CallMethodTask
         {
             return null;
         }
-
         return run(methodToCall, objectMethodBelongsTo, methodArguments);
     }
 
@@ -87,7 +81,6 @@ public class CallMethodTask
         Assert.notNull(methodArguments, "methodArguments input cannot be null.");
         new MakeMethodAccessibleTask().run(method);
         Object[] methodArgumentsTemp = null;
-
         try
         {
             methodArgumentsTemp = buildMethodArguments(methodArguments);
@@ -105,19 +98,16 @@ public class CallMethodTask
         {
             return null;
         }
-
     }
 
 
     private Class<?>[] getMethodArgumentsAsClasses(Object[] methodArguments)
     {
         Class<?>[] methodArgumentsAsClasses = new Class<?>[methodArguments.length];
-
         for(int i = 0; i < methodArguments.length; i++)
         {
             methodArgumentsAsClasses[i] = methodArguments[i].getClass();
         }
-
         return methodArgumentsAsClasses;
     }
 
@@ -125,7 +115,6 @@ public class CallMethodTask
     private Object[] buildMethodArguments(Object[] methodArguments)
     {
         Object[] methodArgumentsTemp = null;
-
         if(methodArguments.length == 0)
         {
             methodArgumentsTemp = new Object[] {};
@@ -133,10 +122,8 @@ public class CallMethodTask
         else
         {
             methodArgumentsTemp = new Object[methodArguments.length];
-
             for(int i = 0; i < methodArguments.length; i++)
             {
-
                 if(methodArguments[i].getClass().isArray())
                 {
                     methodArgumentsTemp[i] = (Object[])methodArguments[i];
@@ -145,11 +132,8 @@ public class CallMethodTask
                 {
                     methodArgumentsTemp[i] = methodArguments[i];
                 }
-
             }
-
         }
-
         return methodArgumentsTemp;
     }
 }

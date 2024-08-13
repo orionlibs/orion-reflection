@@ -19,16 +19,13 @@ public class GetDeclaredMethodTask
         Assert.notEmpty(methodName, "methodName input cannot be null/empty.");
         Assert.notNull(aClass, "class input cannot be null.");
         Assert.notNull(methodParameterTypes, "methodParameterTypes input cannot be null.");
-
         try
         {
-
             if(methodParameterTypes.length == 0)
             {
                 methodParameterTypes = new Class<?>[]
-                {Object.class};
+                                {Object.class};
             }
-
             return aClass.getDeclaredMethod(methodName, methodParameterTypes);
         }
         catch(NoSuchMethodException e)
@@ -39,6 +36,5 @@ public class GetDeclaredMethodTask
         {
             return null;
         }
-
     }
 }

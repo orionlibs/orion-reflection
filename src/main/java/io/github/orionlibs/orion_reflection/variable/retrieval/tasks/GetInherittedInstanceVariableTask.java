@@ -18,19 +18,15 @@ public class GetInherittedInstanceVariableTask
         Assert.notNull(aClass, "class input cannot be null.");
         Field declaredInstanceVariable = null;
         Class<?> superclass = aClass.getSuperclass();
-
         while(superclass != null)
         {
             declaredInstanceVariable = GetDeclaredInstanceVariableTask.run(instanceVariableName, superclass);
-
             if(declaredInstanceVariable != null)
             {
                 break;
             }
-
             superclass = superclass.getSuperclass();
         }
-
         return declaredInstanceVariable;
     }
 }

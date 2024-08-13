@@ -41,21 +41,16 @@ public class ReflectionObjectsService
         Assert.notNull(target, "target input cannot be null.");
         List<Field> fieldsToCopy = ReflectionInstanceVariablesRetrievalService.getDeclaredInstanceVariables(source);
         List<Field> targetFields = ReflectionInstanceVariablesRetrievalService.getDeclaredInstanceVariables(target);
-
         if(fieldsToCopy != null)
         {
-
             for(Field field : fieldsToCopy)
             {
                 ReflectionInstanceVariablesAccessService.makeInstanceVariableAccessible(field);
-
                 for(Field targetField : targetFields)
                 {
-
                     if(field.getName().equals(targetField.getName()))
                     {
                         ReflectionInstanceVariablesAccessService.makeInstanceVariableAccessible(targetField);
-
                         try
                         {
                             ReflectionInstanceVariablesAccessService.injectObjectToInstanceVariable(target, field.get(source), targetField);
@@ -64,16 +59,11 @@ public class ReflectionObjectsService
                         {
                             exception.printStackTrace();
                         }
-
                         break;
                     }
-
                 }
-
             }
-
         }
-
         return target;
     }
 }

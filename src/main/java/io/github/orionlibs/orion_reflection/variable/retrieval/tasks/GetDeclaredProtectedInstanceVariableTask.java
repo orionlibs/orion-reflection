@@ -8,12 +8,10 @@ public class GetDeclaredProtectedInstanceVariableTask
     public static Field run(String instanceVariableName, Class<?> aClass) throws NoSuchFieldException, SecurityException
     {
         Field field = GetDeclaredInstanceVariableTask.run(instanceVariableName, aClass);
-
         if(field != null && IsProtectedVariableTask.run(field) && IsNotStaticVariableTask.run(field))
         {
             return field;
         }
-
         return null;
     }
 

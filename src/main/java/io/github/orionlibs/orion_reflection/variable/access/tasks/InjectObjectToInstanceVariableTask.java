@@ -7,7 +7,6 @@ public class InjectObjectToInstanceVariableTask
 {
     public void run(Object object, Object objectToInject, Field instanceVariable) throws InaccessibleException
     {
-
         try
         {
             instanceVariable.set(object, objectToInject);
@@ -20,6 +19,5 @@ public class InjectObjectToInstanceVariableTask
         {
             throw new InaccessibleException("The instance variable is inaccessible.");
         }
-
     }
 }

@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 public class ReflectionEnumerationService
 {
     @SuppressWarnings(
-    {"rawtypes"})
+                    {"rawtypes"})
     public static Class<Enum> instantiateEnumeration(String enumerationPath) throws ClassNotFoundException
     {
         return InstantiateEnumerationTask.run(enumerationPath);
@@ -31,7 +31,7 @@ public class ReflectionEnumerationService
 
 
     @SuppressWarnings(
-    {"rawtypes"})
+                    {"rawtypes"})
     public static String getEnumerationValue(Class<Enum> enumerationClass, String enumerationName) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
     {
         return GetEnumerationValueTask.run(enumerationClass, enumerationName);
