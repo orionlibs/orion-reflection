@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.orionlibs</groupId>
     <artifactId>orion-reflection</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>Orion Reflection</name>
     <description>Java reflection library</description>
     <url>https://github.com/orionlibs/orion-reflection</url>
@@ -229,7 +229,7 @@
         <dependency>
             <groupId>io.github.orionlibs</groupId>
             <artifactId>orion-stream</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
         </dependency>
     </dependencies>
 </project>
